@@ -4,20 +4,20 @@ Website demonstrativo de um hotel ficticio na Puglia. Inclui pagina inicial, qua
 
 ## Abrir o site
 
-Como o projeto e estatico, pode abrir `index.html` diretamente no navegador ou iniciar um servidor local na pasta do projeto:
+Os arquivos do site ficam em `docs/`, configurada como origem do GitHub Pages. Pode iniciar um servidor local na pasta do projeto:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Depois, aceda a <http://localhost:8000>.
+Depois, aceda a <http://localhost:8000/docs/>.
 
 ## Paginas
 
-- `index.html` - pagina inicial
-- `sobre.html` - historia ficticia da casa
-- `quartos.html` - quartos e precos demonstrativos
-- `atividades.html` - experiencias opcionais e precos demonstrativos
-- `contactos.html` - formulario de pedido e estimativa de valores
+- `docs/index.html` - pagina inicial
+- `docs/sobre.html` - historia ficticia da casa
+- `docs/quartos.html` - quartos e precos demonstrativos
+- `docs/atividades.html` - experiencias opcionais e precos demonstrativos
+- `docs/contactos.html` - formulario de pedido e estimativa de valores
 
 Os dados de disponibilidade, precos e parcelamento sao apenas demonstrativos. O formulario nao processa pagamentos nem cria reservas reais.

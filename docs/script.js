@@ -93,6 +93,19 @@ const languageTranslations = {
         "Conforto e conveniência": "Comfort e comodita", "Ar condicionado, Wi-Fi gratuito, estacionamento e jardim.": "Aria condizionata, Wi-Fi gratuito, parcheggio e giardino.",
         "Para toda a família": "Per tutta la famiglia", "Quartos familiares e opções para diferentes tamanhos de grupo.": "Camere familiari e opzioni per gruppi di diverse dimensioni.",
         "Antes de chegar": "Prima dell'arrivo", "Perguntas frequentes": "Domande frequenti",
+        "Que tipo de quarto posso reservar em Cavour Luxury Rooms?": "Che tipo di camera posso prenotare al Cavour Luxury Rooms?",
+        "As opções de quarto em Cavour Luxury Rooms incluem:": "Le opzioni disponibili al Cavour Luxury Rooms includono:",
+        "- Duplo": "- Matrimoniale",
+        "- Apartamento": "- Appartamento",
+        "Quais são os horários de check-in e check-out em Cavour Luxury Rooms?": "Quali sono gli orari di check-in e check-out al Cavour Luxury Rooms?",
+        "Em Cavour Luxury Rooms, o check-in é a partir das 15:00 até as 21:00 e o check-out das 07:00 até às 10:00.": "Al Cavour Luxury Rooms, il check-in e dalle 15:00 alle 21:00 e il check-out dalle 07:00 alle 10:00.",
+        "Quanto custa hospedar-se em Cavour Luxury Rooms?": "Quanto costa soggiornare al Cavour Luxury Rooms?",
+        "Os valores em Cavour Luxury Rooms podem variar de acordo com os parâmetros da sua estadia": "Le tariffe al Cavour Luxury Rooms possono variare in base ai parametri del soggiorno",
+        "(ex.: as datas que seleciona, as condições do hotel, entre outros). Insira as suas datas e consulte os valores.": "(ad es. le date selezionate, le condizioni dell'hotel e altro). Inserisci le date e consulta le tariffe.",
+        "A que distância fica Cavour Luxury Rooms do centro de Lecce?": "Quanto dista il Cavour Luxury Rooms dal centro di Lecce?",
+        "Cavour Luxury Rooms está localizado a 300 metros do centro de Lecce.": "Il Cavour Luxury Rooms si trova a 300 metri dal centro di Lecce.",
+        "O alojamento tem estacionamento?": "La struttura dispone di parcheggio?",
+        "Sim, há estacionamento disponível para os hóspedes.": "Si, e disponibile un parcheggio per gli ospiti.",
         "Informações importantes": "Informazioni importanti", "Regras essenciais": "Regole essenziali",
         "Cancelamento e pré-pagamento": "Cancellazione e pagamento anticipato", "Crianças e camas": "Bambini e letti",
         "Idade para check-in": "Eta per il check-in", "Não há restrições de idade para fazer check-in.": "Non ci sono limiti di eta per effettuare il check-in.",
@@ -140,6 +153,19 @@ const languageTranslations = {
         "Conforto e conveniência": "Comfort and convenience", "Ar condicionado, Wi-Fi gratuito, estacionamento e jardim.": "Air conditioning, free Wi-Fi, parking and garden.",
         "Para toda a família": "For the whole family", "Quartos familiares e opções para diferentes tamanhos de grupo.": "Family rooms and options for different group sizes.",
         "Antes de chegar": "Before arrival", "Perguntas frequentes": "Frequently asked questions",
+        "Que tipo de quarto posso reservar em Cavour Luxury Rooms?": "What type of room can I book at Cavour Luxury Rooms?",
+        "As opções de quarto em Cavour Luxury Rooms incluem:": "The room options at Cavour Luxury Rooms include:",
+        "- Duplo": "- Double",
+        "- Apartamento": "- Apartment",
+        "Quais são os horários de check-in e check-out em Cavour Luxury Rooms?": "What are the check-in and check-out times at Cavour Luxury Rooms?",
+        "Em Cavour Luxury Rooms, o check-in é a partir das 15:00 até as 21:00 e o check-out das 07:00 até às 10:00.": "At Cavour Luxury Rooms, check-in is from 15:00 to 21:00 and check-out is from 07:00 to 10:00.",
+        "Quanto custa hospedar-se em Cavour Luxury Rooms?": "How much does it cost to stay at Cavour Luxury Rooms?",
+        "Os valores em Cavour Luxury Rooms podem variar de acordo com os parâmetros da sua estadia": "Rates at Cavour Luxury Rooms may vary according to your stay parameters",
+        "(ex.: as datas que seleciona, as condições do hotel, entre outros). Insira as suas datas e consulte os valores.": "(e.g. the dates you select, hotel conditions and other factors). Enter your dates to view the rates.",
+        "A que distância fica Cavour Luxury Rooms do centro de Lecce?": "How far is Cavour Luxury Rooms from Lecce city centre?",
+        "Cavour Luxury Rooms está localizado a 300 metros do centro de Lecce.": "Cavour Luxury Rooms is located 300 metres from Lecce city centre.",
+        "O alojamento tem estacionamento?": "Does the property have parking?",
+        "Sim, há estacionamento disponível para os hóspedes.": "Yes, parking is available for guests.",
         "Informações importantes": "Important information", "Regras essenciais": "Essential rules",
         "Cancelamento e pré-pagamento": "Cancellation and prepayment", "Crianças e camas": "Children and beds",
         "Idade para check-in": "Check-in age", "Não há restrições de idade para fazer check-in.": "There are no age restrictions for check-in.",
@@ -187,6 +213,19 @@ const languageTranslations = {
         "Conforto e conveniência": "Comodidad y conveniencia", "Ar condicionado, Wi-Fi gratuito, estacionamento e jardim.": "Aire acondicionado, Wi-Fi gratuito, aparcamiento y jardin.",
         "Para toda a família": "Para toda la familia", "Quartos familiares e opções para diferentes tamanhos de grupo.": "Habitaciones familiares y opciones para grupos de distintos tamanos.",
         "Antes de chegar": "Antes de llegar", "Perguntas frequentes": "Preguntas frecuentes",
+        "Que tipo de quarto posso reservar em Cavour Luxury Rooms?": "¿Qué tipo de habitación puedo reservar en Cavour Luxury Rooms?",
+        "As opções de quarto em Cavour Luxury Rooms incluem:": "Las opciones de habitación en Cavour Luxury Rooms incluyen:",
+        "- Duplo": "- Doble",
+        "- Apartamento": "- Apartamento",
+        "Quais são os horários de check-in e check-out em Cavour Luxury Rooms?": "¿Cuáles son los horarios de entrada y salida en Cavour Luxury Rooms?",
+        "Em Cavour Luxury Rooms, o check-in é a partir das 15:00 até as 21:00 e o check-out das 07:00 até às 10:00.": "En Cavour Luxury Rooms, la entrada es desde las 15:00 hasta las 21:00 y la salida desde las 07:00 hasta las 10:00.",
+        "Quanto custa hospedar-se em Cavour Luxury Rooms?": "¿Cuánto cuesta alojarse en Cavour Luxury Rooms?",
+        "Os valores em Cavour Luxury Rooms podem variar de acordo com os parâmetros da sua estadia": "Las tarifas de Cavour Luxury Rooms pueden variar según los parámetros de su estancia",
+        "(ex.: as datas que seleciona, as condições do hotel, entre outros). Insira as suas datas e consulte os valores.": "(por ejemplo, las fechas seleccionadas, las condiciones del hotel y otros factores). Introduzca sus fechas y consulte las tarifas.",
+        "A que distância fica Cavour Luxury Rooms do centro de Lecce?": "¿A qué distancia está Cavour Luxury Rooms del centro de Lecce?",
+        "Cavour Luxury Rooms está localizado a 300 metros do centro de Lecce.": "Cavour Luxury Rooms está situado a 300 metros del centro de Lecce.",
+        "O alojamento tem estacionamento?": "¿El alojamiento dispone de aparcamiento?",
+        "Sim, há estacionamento disponível para os hóspedes.": "Sí, hay aparcamiento disponible para los huéspedes.",
         "Informações importantes": "Informacion importante", "Regras essenciais": "Normas esenciales",
         "Cancelamento e pré-pagamento": "Cancelacion y prepago", "Crianças e camas": "Niños y camas",
         "Idade para check-in": "Edad para el check-in", "Não há restrições de idade para fazer check-in.": "No hay restricciones de edad para realizar el check-in.",
@@ -225,6 +264,11 @@ while (walker.nextNode()) {
 
 function applyLanguage(language) {
     const translations = languageTranslations[language] || {};
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const original = element.dataset.i18n;
+        element.textContent = language === "pt" ? original : (translations[original] || original);
+    });
+
     textNodes.forEach((text) => {
         const original = originalTextNodes.get(text);
         text.textContent = language === "pt" ? original : (translations[original] || original);

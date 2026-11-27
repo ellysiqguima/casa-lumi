@@ -269,6 +269,20 @@ function applyLanguage(language) {
         element.textContent = language === "pt" ? original : (translations[original] || original);
     });
 
+    const faqTranslations = languageTranslations[language] || {};
+    document.querySelectorAll(".faq-item").forEach((item) => {
+        const summary = item.querySelector("summary");
+        if (!summary) return;
+
+        const summaryOriginal = summary.dataset.i18n || summary.textContent.trim();
+        summary.textContent = language === "pt" ? summaryOriginal : (faqTranslations[summaryOriginal] || summaryOriginal);
+
+        item.querySelectorAll("[data-i18n]").forEach((element) => {
+            const original = element.dataset.i18n;
+            element.textContent = language === "pt" ? original : (faqTranslations[original] || original);
+        });
+    });
+
     textNodes.forEach((text) => {
         const original = originalTextNodes.get(text);
         text.textContent = language === "pt" ? original : (translations[original] || original);

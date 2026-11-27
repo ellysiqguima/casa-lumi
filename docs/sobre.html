@@ -3,62 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre | Italy Lumi House</title>
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="icon" type="image/png" href="assets/images/logos/logo-03.png">
+    <title>A casa | Cavour Luxury Rooms, Lecce</title>
+    <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="index.html" class="logo">ITALY LUMI HOUSE</a>
+            <a href="index.html" class="logo">
+                <img class="brand-image optional-brand-image" src="assets/images/logos/logo-02.png" alt="" hidden>
+                <span class="brand-divider" aria-hidden="true">|</span>
+                <span class="brand-fallback">CAVOUR LUXURY ROOMS</span>
+            </a>
             <div class="nav-links">
                 <a class="active" href="sobre.html">Sobre</a>
                 <a href="quartos.html">Quartos</a>
-                <a href="atividades.html">Experiencias</a>
+                <a href="atividades.html">Comodidades</a>
                 <a href="contactos.html">Contactos</a>
             </div>
-            <a href="contactos.html" class="nav-button">Reservar</a>
+            <div class="language-picker">
+                <label for="language-select" class="visually-hidden">Idioma</label>
+                <select id="language-select" aria-label="Selecionar idioma">
+                    <option value="pt">PT</option>
+                    <option value="it">IT</option>
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
+            <a href="contactos.html#contact-details" class="nav-button">Contactar</a>
         </nav>
     </header>
 
     <main>
-        <section class="page-hero" style="--page-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d')">
+        <section class="page-hero" style="--page-image: url('assets/images/quartos/apartamento-deluxe/39b9548b-209b-408c-b37f-83d0b1126608.JPG')">
             <div>
-                <p>NOSSA HISTORIA</p>
-                <h1>A quietude da Puglia</h1>
+                <p>A CASA</p>
+                <h1>Conforto e hospitalidade em Lecce.</h1>
             </div>
         </section>
 
         <section class="content-section two-columns">
             <div>
-                <p class="section-label">A casa</p>
-                <h2 class="section-title">Um lugar pensado para desacelerar</h2>
-                <p class="body-copy">A Italy Lumi House nasceu como uma casa de familia no coracao da Puglia. Hoje, preserva o seu espirito intimo e recebe convidados que procuram silencio, natureza e hospitalidade genuina.</p>
-                <p class="body-copy">Cada detalhe combina materiais locais, artesanato italiano e um design contemporaneo. Tudo aqui foi criado para fazer com que a experiencia pareca simples e pessoal.</p>
+                <p class="section-label">Cavour Luxury Rooms | Lecce</p>
+                <h2 class="section-title">Uma estadia que acolhe toda a família</h2>
+                <p class="body-copy">O alojamento fica em 9 Via Cavour, 73100 Lecce, Itália, e dispõe de duas opções: Apartamento Deluxe e Quarto Queen Deluxe.</p>
+                <p class="body-copy">O pequeno-almoço está incluído. Há estacionamento, jardim, ar condicionado, Wi-Fi gratuito e quartos familiares.</p>
             </div>
-            <img class="feature-image" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Interior elegante de hotel">
+            <img class="feature-image" src="assets/images/quartos/queen-deluxe/a4a2f76a-68e6-489f-b7bc-ecdb3672f486.JPG" alt="Interior elegante de hotel">
         </section>
 
         <section class="content-section">
             <div class="values">
                 <article class="value">
-                    <h3>Hospitalidade</h3>
-                    <p>Atendimento atento, discreto e feito para que cada hospede se sinta em casa.</p>
+                    <h3>Pequeno-almoço</h3>
+                    <p>Pequeno-almoço incluído na estadia.</p>
                 </article>
                 <article class="value">
-                    <h3>Autenticidade</h3>
-                    <p>Sabores, materiais e tradicoes da Puglia apresentados com simplicidade.</p>
+                    <h3>Comodidades</h3>
+                    <p>Estacionamento, jardim, ar condicionado e Wi-Fi gratuito.</p>
                 </article>
                 <article class="value">
-                    <h3>Tranquilidade</h3>
-                    <p>Espacos silenciosos rodeados por oliveiras, jardins e luz natural.</p>
+                    <h3>Em família</h3>
+                    <p>Opções familiares para viajar com crianças e grupos pequenos.</p>
                 </article>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 ITALY LUMI HOUSE. Todos os direitos reservados.</p>
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a class="footer-wordmark" href="index.html">
+                    <img class="brand-image footer-brand-image optional-brand-image" src="assets/images/logos/logo-03.png" alt="" hidden>
+                    <span class="brand-divider" aria-hidden="true">|</span>
+                    <span class="brand-fallback">CAVOUR <span>Luxury Rooms</span></span>
+                </a>
+                <p>Conforto e hospitalidade no coração de Lecce, Itália.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Navegação do rodapé">
+                <span class="footer-label">Explore</span>
+                <a href="sobre.html">Sobre</a>
+                <a href="quartos.html">Quartos</a>
+                <a href="atividades.html">Comodidades</a>
+            </nav>
+            <div class="footer-contact">
+                <span class="footer-label">Encontre-nos</span>
+                <p>9 Via Cavour<br>73100 Lecce, Itália</p>
+                <a href="contactos.html">Contactos <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>2026 &copy; Cavour Luxury Rooms |<span>| by 3M LAB</span></span>
+            <span>Lecce, Itália</span>
+        </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>

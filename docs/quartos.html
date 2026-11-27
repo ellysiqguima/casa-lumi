@@ -3,113 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quartos | Italy Lumi House</title>
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="icon" type="image/png" href="assets/images/logos/logo-03.png">
+    <title>Acomodações | Cavour Luxury Rooms, Lecce</title>
+    <link rel="stylesheet" href="style.css?v=12">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="index.html" class="logo">ITALY LUMI HOUSE</a>
+            <a href="index.html" class="logo">
+                <img class="brand-image optional-brand-image" src="assets/images/logos/logo-02.png" alt="" hidden>
+                <span class="brand-divider" aria-hidden="true">|</span>
+                <span class="brand-fallback">CAVOUR LUXURY ROOMS</span>
+            </a>
             <div class="nav-links">
                 <a href="sobre.html">Sobre</a>
                 <a class="active" href="quartos.html">Quartos</a>
-                <a href="atividades.html">Experiencias</a>
+                <a href="atividades.html">Comodidades</a>
                 <a href="contactos.html">Contactos</a>
             </div>
-            <a href="contactos.html" class="nav-button">Reservar</a>
+            <div class="language-picker">
+                <label for="language-select" class="visually-hidden">Idioma</label>
+                <select id="language-select" aria-label="Selecionar idioma">
+                    <option value="pt">PT</option>
+                    <option value="it">IT</option>
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
+            <a href="contactos.html#contact-details" class="nav-button">Contactar</a>
         </nav>
     </header>
 
     <main>
-        <section class="page-hero" style="--page-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6')">
-            <div>
-                <p>QUARTOS E SUITES</p>
-                <h1>Descanso com alma</h1>
+        <section class="page-hero rooms-page-hero" aria-labelledby="rooms-title">
+            <div class="rooms-page-hero-images">
+                <figure>
+                    <img src="assets/images/quartos/apartamento-deluxe/47d386bf-d83f-403f-a12f-a1adcfca3a05.JPG" alt="Quarto do Apartamento Deluxe">
+                    <figcaption>Apartamento Deluxe</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/images/quartos/queen-deluxe/ea1c4545-e51e-435d-8971-a85c371d3891.JPG" alt="Quarto Queen Deluxe">
+                    <figcaption>Quarto Queen Deluxe</figcaption>
+                </figure>
+            </div>
+            <div class="rooms-page-hero-copy">
+                <p>DUAS ACOMODAÇÕES</p>
+                <h1 id="rooms-title">Espaço para descansar e sentir-se em casa.</h1>
             </div>
         </section>
 
         <section class="content-section">
-            <p class="section-label">Acolhimento</p>
-            <h2 class="section-title">Espacos para descansar em familia</h2>
+            <p class="section-label">Acomodações</p>
+            <h2 class="section-title">Escolha a opção ideal para o seu grupo</h2>
             <div class="rooms-grid">
                 <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1615874694520-474822394e73" alt="Quarto Jardim">
-                    <div class="room-details">
-                        <h2>Quarto Jardim</h2>
-                        <p>Cama king, varanda privada e vista para o jardim de ervas aromaticas.</p>
-                        <div class="room-meta">
-                            <span>2 hospedes</span>
-                            <span>Desde EUR 220</span>
+                    <h2 class="visually-hidden">Apartamento Deluxe</h2>
+                    <div class="room-gallery" data-image-gallery aria-label="Fotos do Apartamento Deluxe">
+                        <div class="gallery-stage">
+                            <img class="gallery-image" data-gallery-image src="assets/images/quartos/apartamento-deluxe/19bb7c94-217a-43ed-8600-ed9645e23d93.JPG" alt="Quarto do Apartamento Deluxe">
                         </div>
+                        <div class="gallery-controls">
+                            <button class="gallery-arrow" type="button" data-gallery-prev aria-label="Foto anterior">&#8592;</button>
+                            <span class="gallery-counter" data-gallery-counter aria-live="polite">1 / 10</span>
+                            <button class="gallery-arrow" type="button" data-gallery-next aria-label="Foto seguinte">&#8594;</button>
+                        </div>
+                        <div class="gallery-thumbnails" aria-label="Escolher foto">
+                            <button class="gallery-thumbnail is-active" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/19bb7c94-217a-43ed-8600-ed9645e23d93.JPG" data-alt="Quarto do Apartamento Deluxe" aria-label="Mostrar foto 1" aria-current="true"><img src="assets/images/quartos/apartamento-deluxe/19bb7c94-217a-43ed-8600-ed9645e23d93.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/350f4a06-d72b-46fc-9c73-81ef02c0bb47.JPG" data-alt="Casa de banho do Apartamento Deluxe" aria-label="Mostrar foto 2"><img src="assets/images/quartos/apartamento-deluxe/350f4a06-d72b-46fc-9c73-81ef02c0bb47.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/39b9548b-209b-408c-b37f-83d0b1126608.JPG" data-alt="Zona de refeições do Apartamento Deluxe" aria-label="Mostrar foto 3"><img src="assets/images/quartos/apartamento-deluxe/39b9548b-209b-408c-b37f-83d0b1126608.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/39e42f4c-5fe5-42a1-8eac-0db50e0ea979.JPG" data-alt="Sala de estar do Apartamento Deluxe" aria-label="Mostrar foto 4"><img src="assets/images/quartos/apartamento-deluxe/39e42f4c-5fe5-42a1-8eac-0db50e0ea979.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/47d386bf-d83f-403f-a12f-a1adcfca3a05.JPG" data-alt="Quarto do Apartamento Deluxe" aria-label="Mostrar foto 5"><img src="assets/images/quartos/apartamento-deluxe/47d386bf-d83f-403f-a12f-a1adcfca3a05.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/48a608e1-19aa-48e2-bc7b-223c5f46a599.JPG" data-alt="Lavatório da casa de banho do Apartamento Deluxe" aria-label="Mostrar foto 6"><img src="assets/images/quartos/apartamento-deluxe/48a608e1-19aa-48e2-bc7b-223c5f46a599.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/78fbd930-30ab-4f5f-894e-30136a864ded.JPG" data-alt="Detalhe decorativo do Apartamento Deluxe" aria-label="Mostrar foto 7"><img src="assets/images/quartos/apartamento-deluxe/78fbd930-30ab-4f5f-894e-30136a864ded.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/80c4db6b-ea21-4ab7-9162-6ce28959d09b.JPG" data-alt="Mesa preparada no Apartamento Deluxe" aria-label="Mostrar foto 8"><img src="assets/images/quartos/apartamento-deluxe/80c4db6b-ea21-4ab7-9162-6ce28959d09b.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/86c3be50-5174-4bb0-9c10-7d1bd6ddd51e.JPG" data-alt="Cozinha do Apartamento Deluxe" aria-label="Mostrar foto 9"><img src="assets/images/quartos/apartamento-deluxe/86c3be50-5174-4bb0-9c10-7d1bd6ddd51e.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/apartamento-deluxe/95c489ac-273d-4b54-8b2c-aa851b70188d.JPG" data-alt="Cama do Apartamento Deluxe" aria-label="Mostrar foto 10"><img src="assets/images/quartos/apartamento-deluxe/95c489ac-273d-4b54-8b2c-aa851b70188d.JPG" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="room-details">
+                        <h2>Apartamento Deluxe</h2>
+                        <p>70 m² · apartamento completo, recomendado para 2 adultos e 2 crianças.</p>
+                        <p>1 cama de casal grande no quarto e 1 sofá-cama na sala de estar.</p>
+                        <p>Ar condicionado, casa de banho no quarto, televisão de ecrã plano e Wi-Fi gratuito.</p>
                     </div>
                 </article>
 
                 <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1590490360182-c33d57733427" alt="Quarto Oliveiras">
-                    <div class="room-details">
-                        <h2>Quarto Oliveiras</h2>
-                        <p>Quarto sereno com cama queen, escritorio e vista para as oliveiras.</p>
-                        <div class="room-meta">
-                            <span>2 hospedes</span>
-                            <span>Desde EUR 195</span>
+                    <h2 class="visually-hidden">Quarto Queen Deluxe</h2>
+                    <div class="room-gallery" data-image-gallery aria-label="Fotos do Quarto Queen Deluxe">
+                        <div class="gallery-stage">
+                            <img class="gallery-image" data-gallery-image src="assets/images/quartos/queen-deluxe/ea1c4545-e51e-435d-8971-a85c371d3891.JPG" alt="Quarto Queen Deluxe">
+                        </div>
+                        <div class="gallery-controls">
+                            <button class="gallery-arrow" type="button" data-gallery-prev aria-label="Foto anterior">&#8592;</button>
+                            <span class="gallery-counter" data-gallery-counter aria-live="polite">1 / 8</span>
+                            <button class="gallery-arrow" type="button" data-gallery-next aria-label="Foto seguinte">&#8594;</button>
+                        </div>
+                        <div class="gallery-thumbnails" aria-label="Escolher foto">
+                            <button class="gallery-thumbnail is-active" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/d6d4546a-b087-4ce2-8868-c74c00b969cb.JPG" data-alt="Quarto Queen Deluxe" aria-label="Mostrar foto 1" aria-current="true"><img src="assets/images/quartos/queen-deluxe/d6d4546a-b087-4ce2-8868-c74c00b969cb.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/ea1c4545-e51e-435d-8971-a85c371d3891.JPG" data-alt="Quarto Queen Deluxe com acesso à varanda" aria-label="Mostrar foto 2"><img src="assets/images/quartos/queen-deluxe/ea1c4545-e51e-435d-8971-a85c371d3891.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/26ba8b3d-56df-4b77-8952-1ed13abde2dd.JPG" data-alt="Mesa posta no Quarto Queen Deluxe" aria-label="Mostrar foto 3"><img src="assets/images/quartos/queen-deluxe/26ba8b3d-56df-4b77-8952-1ed13abde2dd.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/3bebf2ee-bfe5-40b3-86d3-192a9bbb1758.JPG" data-alt="Detalhe do acesso ao Quarto Queen Deluxe" aria-label="Mostrar foto 4"><img src="assets/images/quartos/queen-deluxe/3bebf2ee-bfe5-40b3-86d3-192a9bbb1758.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/8dc5d1fe-e7b2-4a99-8fbb-8a70860e3572.JPG" data-alt="Detalhes do mobiliário no Quarto Queen Deluxe" aria-label="Mostrar foto 5"><img src="assets/images/quartos/queen-deluxe/8dc5d1fe-e7b2-4a99-8fbb-8a70860e3572.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/a4a2f76a-68e6-489f-b7bc-ecdb3672f486.JPG" data-alt="Zona de refeições do Quarto Queen Deluxe" aria-label="Mostrar foto 6"><img src="assets/images/quartos/queen-deluxe/a4a2f76a-68e6-489f-b7bc-ecdb3672f486.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/aabb5e2f-8718-44c1-8145-6fed27b7eae1.JPG" data-alt="Lavatório do Quarto Queen Deluxe" aria-label="Mostrar foto 7"><img src="assets/images/quartos/queen-deluxe/aabb5e2f-8718-44c1-8145-6fed27b7eae1.JPG" alt=""></button>
+                            <button class="gallery-thumbnail" type="button" data-gallery-thumbnail data-src="assets/images/quartos/queen-deluxe/ae9f7716-57d5-41e0-a5b8-1fb4d125e92e.JPG" data-alt="Chuveiro do Quarto Queen Deluxe" aria-label="Mostrar foto 8"><img src="assets/images/quartos/queen-deluxe/ae9f7716-57d5-41e0-a5b8-1fb4d125e92e.JPG" alt=""></button>
                         </div>
                     </div>
-                </article>
-
-                <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a" alt="Suite Terraço">
                     <div class="room-details">
-                        <h2>Suite Terraço</h2>
-                        <p>Terraço amplo, poltronas exteriores e vistas abertas sobre a campina.</p>
-                        <div class="room-meta">
-                            <span>2 hospedes</span>
-                            <span>Desde EUR 350</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" alt="Villa Petit">
-                    <div class="room-details">
-                        <h2>Villa Petit</h2>
-                        <p>Casa independente com sala, cozinha pequena e patio privado.</p>
-                        <div class="room-meta">
-                            <span>4 hospedes</span>
-                            <span>Desde EUR 480</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" alt="Suite Lumi">
-                    <div class="room-details">
-                        <h2>Suite Lumi</h2>
-                        <p>Sala de estar acolhedora, banheira de pedra e terraço com luz ao por do sol.</p>
-                        <div class="room-meta">
-                            <span>2 hospedes</span>
-                            <span>Desde EUR 310</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Suite Familia">
-                    <div class="room-details">
-                        <h2>Suite Familia</h2>
-                        <p>Espaco amplo com quarto separado, pequeno jardim e area para momentos em familia.</p>
-                        <div class="room-meta">
-                            <span>4 hospedes</span>
-                            <span>Desde EUR 420</span>
-                        </div>
+                        <h2>Quarto Queen Deluxe</h2>
+                        <p>25 m² · com vista para a cidade, recomendado para até 3 pessoas.</p>
+                        <p>1 cama de casal grande e 1 futon.</p>
+                        <p>Ar condicionado, casa de banho no quarto, televisão de ecrã plano e Wi-Fi gratuito.</p>
                     </div>
                 </article>
             </div>
+            <a href="contactos.html#contact-details" class="outline-button">Consultar disponibilidade</a>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 ITALY LUMI HOUSE. Todos os direitos reservados.</p>
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a class="footer-wordmark" href="index.html">
+                    <img class="brand-image footer-brand-image optional-brand-image" src="assets/images/logos/logo-03.png" alt="" hidden>
+                    <span class="brand-divider" aria-hidden="true">|</span>
+                    <span class="brand-fallback">CAVOUR <span>Luxury Rooms</span></span>
+                </a>
+                <p>Conforto e hospitalidade no coração de Lecce, Itália.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Navegação do rodapé">
+                <span class="footer-label">Explore</span>
+                <a href="sobre.html">Sobre</a>
+                <a href="quartos.html">Quartos</a>
+                <a href="atividades.html">Comodidades</a>
+            </nav>
+            <div class="footer-contact">
+                <span class="footer-label">Encontre-nos</span>
+                <p>9 Via Cavour<br>73100 Lecce, Itália</p>
+                <a href="contactos.html">Contactos <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>2026 &copy; Cavour Luxury Rooms |<span>| by 3M LAB</span></span>
+            <span>Lecce, Itália</span>
+        </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>

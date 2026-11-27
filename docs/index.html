@@ -3,82 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logos/logo-03.png">
 
-    <title>ITALY LUMI HOUSE | Boutique Hotel</title>
-    <link rel="stylesheet" href="style.css?v=5">
+    <title>Cavour Luxury Rooms | Lecce</title>
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="index.html" class="logo">ITALY LUMI HOUSE</a>
+            <a href="index.html" class="logo">
+                <img class="brand-image optional-brand-image" src="assets/images/logos/logo-02.png" alt="" hidden>
+                <span class="brand-divider" aria-hidden="true">|</span>
+                <span class="brand-fallback">CAVOUR LUXURY ROOMS</span>
+            </a>
             <div class="nav-links">
                 <a href="sobre.html">Sobre</a>
                 <a href="quartos.html">Quartos</a>
-                <a href="atividades.html">Experiencias</a>
+                <a href="atividades.html">Comodidades</a>
                 <a href="contactos.html">Contactos</a>
             </div>
-            <a href="#reservas" class="nav-button">Reservar</a>
+            <div class="language-picker">
+                <label for="language-select" class="visually-hidden">Idioma</label>
+                <select id="language-select" aria-label="Selecionar idioma">
+                    <option value="pt">PT</option>
+                    <option value="it">IT</option>
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
+            <a href="contactos.html#contact-details" class="nav-button">Contactar</a>
         </nav>
     </header>
     <main>
         <section class="hero">
             <div class="hero-content">
-                <p class="subtitle">UMA EXPERIENCIA NO CORACAO DA PUGLIA</p>
-                <h1>Descubra o prazer de simplesmente estar</h1>
+                <p class="subtitle">CAVOUR LUXURY ROOMS | LECCE, ITÁLIA</p>
+                <h1>Um lugar especial para descobrir Lecce.</h1>
 
-                <p class="description">Um refugio mediterrâneo onde a arquitetura, a tranquilidade e a hospitalidade se encontram.</p>
+                <p class="description">Conforto para famílias, pequeno-almoço incluído e a hospitalidade do Salento.</p>
 
-                <a href="#reservas" class="main-button">Descobrir o hotel</a>
+                <a href="contactos.html#contact-details" class="main-button">Consultar disponibilidade</a>
             </div>
         </section>
 
         <section id="sobre" class="about">
-            <p>ITALY LUMI HOUSE | ITALIA</p>
-            <h2>Mais do que uma estadia, uma experiencia</h2>
+            <p>CAVOUR LUXURY ROOMS | SALENTO</p>
+            <h2>Uma estadia confortável para aproveitar cada momento.</h2>
         </section>
 
         <section class="content-section two-columns">
             <div>
-                <p class="section-label">Hospitalidade italiana</p>
-                <h2 class="section-title">O ritmo mais lento da Puglia</h2>
-                <p class="body-copy">Acorde com a luz do Mediterraneo, tome o pequeno-almoço no jardim e deixe o dia acontecer sem pressa.</p>
-                <p class="body-copy">A nossa casa combina arquitetura local, materiais naturais e um serviço discreto para criar uma experiencia verdadeiramente memoravel.</p>
-                <a href="sobre.html" class="outline-button">Conhecer a casa</a>
+                <p class="section-label">Em Lecce, no coração do Salento</p>
+                <h2 class="section-title">Espaço para descansar, juntos.</h2>
+                <p class="body-copy">O Apartamento Deluxe acomoda até 2 adultos e 2 crianças. O Quarto Queen Deluxe recebe até 3 pessoas e oferece vista para a cidade.</p>
+                <p class="body-copy">Ambos contam com ar condicionado, casa de banho privativa, televisão de ecrã plano e Wi-Fi gratuito. O pequeno-almoço está incluído.</p>
+                <a href="sobre.html" class="outline-button">Conhecer a estadia</a>
             </div>
-            <img class="feature-image" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Interior acolhedor da Italy Lumi House">
+            <img class="feature-image" src="assets/images/quartos/apartamento-deluxe/19bb7c94-217a-43ed-8600-ed9645e23d93.JPG" data-fallback="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85" alt="Quarto do Apartamento Deluxe">
+        </section>
+
+        <section class="history-band" aria-labelledby="lecce-history-title">
+            <div class="history-inner">
+                <div>
+                    <p class="section-label">Lecce | História e identidade</p>
+                    <h2 id="lecce-history-title">Uma Joia Barroca no Coração do Salento</h2>
+                    <figure class="history-photo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Piazza_del_Duomo%2C_Lecce.jpg/1280px-Piazza_del_Duomo%2C_Lecce.jpg" alt="Piazza del Duomo, em Lecce">
+                        <figcaption>Foto: Evillz · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a></figcaption>
+                    </figure>
+                </div>
+                <div class="history-copy">
+                    <p><br><br><br> Conhecida como a "Florença do Sul", Lecce encanta pela sua história milenar — das raízes romanas ao esplendor dos séculos XVII e XVIII, quando a pedra calcária dourada local deu vida ao inconfundível Barroco Leccese.</p>
+                    <p>A poucos minutos a pé do Cavour Luxury Rooms, mergulhe nos dois maiores ícones da cidade:.</p>
+                    <ul>
+                        <li><strong>Basílica de Santa Croce:</strong> — a obra-prima do barroco local, célebre pela sua fachada exuberante esculpida em pedra.</li>
+                        <li><strong>Piazza del Duomo:</strong> —  uma das praças mais cénicas de Itália, um pátio monumental envolto pela Catedral e pelo seu imponente campanário.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="quartos" class="rooms-preview">
             <div class="section-heading">
                 <div>
-                    <p class="section-label">Quartos e suites</p>
-                    <h2 class="section-title">Escolha o seu refugio</h2>
+                    <p class="section-label">Acomodações</p>
+                    <h2 class="section-title">Escolha a estadia ideal</h2>
                 </div>
-                <a href="quartos.html" class="outline-button">Ver todos</a>
+                <a href="quartos.html" class="outline-button">Ver acomodações</a>
             </div>
             <div class="rooms-grid">
                 <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1615874694520-474822394e73" alt="Quarto Jardim">
+                    <img class="room-image" src="assets/images/quartos/apartamento-deluxe/47d386bf-d83f-403f-a12f-a1adcfca3a05.JPG" alt="Quarto do Apartamento Deluxe">
                     <div class="room-details">
-                        <h2>Quarto Jardim</h2>
-                        <p>Varanda privada e vista para o jardim mediterraneo.</p>
-                        <div class="room-meta"><span>2 hospedes</span><strong>EUR 220</strong></div>
+                        <h2>Apartamento Deluxe</h2>
+                        <p>70 m² · apartamento completo · recomendado para 2 adultos e 2 crianças.</p>
+                        <p>1 cama de casal grande e 1 sofá-cama na sala de estar.</p>
                     </div>
                 </article>
                 <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" alt="Suite Lumi">
+                    <img class="room-image" src="assets/images/quartos/queen-deluxe/ea1c4545-e51e-435d-8971-a85c371d3891.JPG" alt="Quarto Queen Deluxe">
                     <div class="room-details">
-                        <h2>Suite Lumi</h2>
-                        <p>Sala privada, banheira de pedra e terraço ao por do sol.</p>
-                        <div class="room-meta"><span>2 hospedes</span><strong>EUR 310</strong></div>
-                    </div>
-                </article>
-                <article class="room-card">
-                    <img class="room-image" src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Suite Familia">
-                    <div class="room-details">
-                        <h2>Suite Familia</h2>
-                        <p>Espaco amplo com quarto separado e jardim privado.</p>
-                        <div class="room-meta"><span>4 hospedes</span><strong>EUR 420</strong></div>
+                        <h2>Quarto Queen Deluxe</h2>
+                        <p>25 m² · vista para a cidade · recomendado para até 3 pessoas.</p>
+                        <p>1 cama de casal grande e 1 futon.</p>
                     </div>
                 </article>
             </div>
@@ -87,53 +114,161 @@
         <section class="rooms-preview">
             <div class="section-heading">
                 <div>
-                    <p class="section-label">Experiencias na Puglia</p>
-                    <h2 class="section-title">Complete a sua estadia</h2>
+                    <p class="section-label">Comodidades</p>
+                    <h2 class="section-title">Tudo para uma estadia tranquila</h2>
                 </div>
-                <a href="atividades.html" class="outline-button">Ver experiencias</a>
+                <a href="atividades.html" class="outline-button">Ver comodidades</a>
             </div>
-            <div class="activity-grid">
-                <article class="activity-card">
-                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb" alt="Degustação de vinho">
-                    <div class="activity-details">
-                        <h2>Degustação de vinhos</h2>
-                        <p>Vinhos locais numa vinícola familiar da Puglia.</p>
-                        <div class="activity-meta"><span>3 horas</span><strong>EUR 85</strong></div>
-                    </div>
+            <div class="values">
+                <article class="value">
+                    <h3>Pequeno-almoço incluído</h3>
+                    <p>Comece o dia com o pequeno-almoço incluído na estadia.</p>
                 </article>
-                <article class="activity-card">
-                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d" alt="Aula de cozinha">
-                    <div class="activity-details">
-                        <h2>Cozinha italiana</h2>
-                        <p>Massas frescas e pratos tradicionais com o chef.</p>
-                        <div class="activity-meta"><span>3 horas</span><strong>EUR 120</strong></div>
-                    </div>
+                <article class="value">
+                    <h3>Conforto e conveniência</h3>
+                    <p>Ar condicionado, Wi-Fi gratuito, estacionamento e jardim.</p>
                 </article>
-                <article class="activity-card">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5" alt="Passeio de barco">
-                    <div class="activity-details">
-                        <h2>Passeio ao pôr do sol</h2>
-                        <p>Barco privado, prosecco e petiscos locais.</p>
-                        <div class="activity-meta"><span>2 horas</span><strong>EUR 145</strong></div>
-                    </div>
+                <article class="value">
+                    <h3>Para toda a família</h3>
+                    <p>Quartos familiares e opções para diferentes tamanhos de grupo.</p>
                 </article>
             </div>
         </section>
+
+        <section class="content-section faq-section" id="faq" aria-labelledby="faq-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">Antes de chegar</p>
+                    <h2 class="section-title" id="faq-title">Perguntas frequentes</h2>
+                </div>
+            </div>
+            <div class="faq-layout">
+                <figure class="faq-photo">
+                    <img src="https://api.openverse.org/v1/images/9cb03d34-c3c8-4b1a-9752-ba0291664061/thumb/" alt="Mar cristalino na costa do Salento">
+                    <figcaption class="photo-credit-inline">“Crystal clear water of Salento” por <a href="https://www.flickr.com/photos/27505428@N06/9430018666" target="_blank" rel="noreferrer">n_sapiens</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noreferrer">CC BY-SA 2.0</a></figcaption>
+                </figure>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Que tipo de quarto posso reservar em Cavour Luxury Rooms?</summary>
+                        <p>As opções de quarto em Cavour Luxury Rooms incluem:
+                            <br> - Duplo
+                            <br> - Apartamento
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Quais são os horários de check-in e check-out em Cavour Luxury Rooms?</summary>
+                        <p>Em Cavour Luxury Rooms, o check-in é a partir das 15:00 até as 21:00 e o check-out das 07:00 até às 10:00.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Quanto custa hospedar-se em Cavour Luxury Rooms?</summary>
+                        <p>Os valores em Cavour Luxury Rooms podem variar de acordo com os parâmetros da sua estadia
+                            <br> (ex.: as datas que seleciona, as condições do hotel, entre outros). Insira as suas datas e consulte os valores.
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>A que distância fica Cavour Luxury Rooms do centro de Lecce?</summary>
+                        <p>Cavour Luxury Rooms está localizado a 300 metros do centro de Lecce.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>O alojamento tem estacionamento?</summary>
+                        <p>Sim, há estacionamento disponível para os hóspedes.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section rules-section" id="regras" aria-labelledby="rules-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">Informações importantes</p>
+                    <h2 class="section-title" id="rules-title">Regras essenciais</h2>
+                </div>
+            </div>
+            <div class="rules-grid">
+                <article class="stay-rule">
+                    <h3>Cancelamento e pré-pagamento</h3>
+                    <p>As condições variam consoante o tipo de alojamento. Consulte as <a href="https://www.booking.com/hotel/it/espada-apartment-amp-rooms-deluxe-lecce.pt-pt.html?aid=311091&amp;label=espada-apartment-amp-rooms-deluxe-lecce-AtDVcL_U8zUOmkE6xzuIyQS831842802475%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-2508995496187%3Alp9217285%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YR10fBTovuitU5KVyXYg8iQ-Share-jlP2m1%401795680570&amp;sid=80eb46ae76f5412b17796621739fe4b8&amp;age=3&amp;age=5&amp;all_sr_blocks=1291075603_402068347_2_1_0&amp;checkin=2026-11-29&amp;checkout=2026-11-30&amp;dest_id=-119920&amp;dest_type=city&amp;dist=0&amp;group_adults=2&amp;group_children=2&amp;hapos=1&amp;highlighted_blocks=1291075603_402068347_2_1_0&amp;hpos=1&amp;matching_block_id=1291075603_402068347_2_1_0&amp;no_rooms=1&amp;req_adults=2&amp;req_age=3&amp;req_age=5&amp;req_children=2&amp;room1=A%2CA%2C3%2C5&amp;sb_price_type=total&amp;sr_order=popularity&amp;sr_pri_blocks=1291075603_402068347_2_1_0__6227&amp;srepoch=1795692190&amp;srpvid=c193f4a48d54ab640b6ca7938fd0b6da&amp;type=total&amp;ucfs=1#availability_target" target="_blank" rel="noreferrer">condições aplicáveis a cada opção</a> ao selecionar a sua estadia.</p>
+                </article>
+                <article class="stay-rule">
+                    <h3>Crianças e camas</h3>
+                    <p>Todas as crianças são bem-vindas. A partir dos 6 anos aplicam-se tarifas de adulto. Para crianças com menos de 6 anos, selecione uma tarifa com a ocupação infantil indicada para garantir o preço correto.</p>
+                    <p>Dos 0 aos 2 anos, há berço mediante pedido por € 10 por criança, por noite. O valor não está incluído no total e é pago durante a estadia. A disponibilidade e o número de berços dependem da opção selecionada. Não há camas extra; todos os berços estão sujeitos a disponibilidade.</p>
+                </article>
+                <article class="stay-rule">
+                    <h3>Idade para check-in</h3>
+                    <p>Não há restrições de idade para fazer check-in.</p>
+                </article>
+                <article class="stay-rule">
+                    <h3>Pagamentos e animais</h3>
+                    <div class="payment-methods" aria-label="Formas de pagamento aceites">
+                        <img src="assets/images/payment/american-express.svg" alt="American Express">
+                        <img src="assets/images/payment/visa.svg" alt="Visa">
+                        <img src="assets/images/payment/mastercard.svg" alt="Mastercard">
+                        <img src="assets/images/payment/cartasi.svg" alt="CartaSi">
+                        <span>Dinheiro</span>
+                    </div>
+                    <p>Não são admitidos animais de estimação. <span aria-hidden="true">⚠️</span> </p>
+                </article>
+                <article class="stay-rule">
+                    <h3>Fumo, festas e repouso</h3>
+                    <p>Não é permitido fumar, nem realizar festas ou eventos. O período de repouso é das 00:00 às 08:00; pedimos aos hóspedes que não façam barulho durante esse horário.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="guest-rating-band" aria-labelledby="guest-rating-title">
+            <div class="guest-rating-inner">
+                <div class="guest-rating-score">
+                    <p>Nota no Booking.com</p>
+                    <strong>9,8<span>/10</span></strong>
+                </div>
+                <div class="guest-rating-copy">
+                    <p class="section-label">Avaliação dos hóspedes</p>
+                    <h2 id="guest-rating-title">Uma classificação de destaque.</h2>
+                    <p>Nota de 9,8/10 no Booking.com, informada para o alojamento.</p>
+                </div>
+            </div>
+        </section>
+        <br>
 
         <section id="reservas" class="booking-strip">
             <div class="booking-copy">
-                <span>A sua estadia começa aqui</span>
-                <strong>Reserve a Italy Lumi House</strong>
+                <span>Encontre-nos</span>
+                <strong>9 Via Cavour, Lecce</strong>
             </div>
-            <div class="booking-item"><span>Check-in</span><strong>15:00</strong></div>
-            <div class="booking-item"><span>Check-out</span><strong>11:00</strong></div>
-            <a href="contactos.html">Consultar disponibilidade</a>
+            <div class="booking-item"><span>Pequeno-almoço</span><strong>Incluído</strong></div>
+            <div class="booking-item"><span>Wi-Fi</span><strong>Gratuito</strong></div>
+            <a href="contactos.html#contact-details">Contactar o alojamento</a>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 ITALY LUMI HOUSE. Todos os direitos reservados.</p>
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a class="footer-wordmark" href="index.html">
+                    <img class="brand-image footer-brand-image optional-brand-image" src="assets/images/logos/logo-03.png" alt="" hidden>
+                    <span class="brand-divider" aria-hidden="true">|</span>
+                    <span class="brand-fallback">CAVOUR <span>Luxury Rooms</span></span>
+                </a>
+                <p>Conforto e hospitalidade no coração de Lecce, Itália.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Navegação do rodapé">
+                <span class="footer-label">Explore</span>
+                <a href="sobre.html">Sobre</a>
+                <a href="quartos.html">Quartos</a>
+                <a href="atividades.html">Comodidades</a>
+            </nav>
+            <div class="footer-contact">
+                <span class="footer-label">Encontre-nos</span>
+                <p>9 Via Cavour<br>73100 Lecce, Itália</p>
+                <a href="contactos.html">Contactos <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>2026 &copy; Cavour Luxury Rooms |<span>| by 3M LAB</span></span>
+            <span>Lecce, Itália</span>
+        </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>

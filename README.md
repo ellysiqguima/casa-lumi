@@ -1,6 +1,6 @@
-# Italy Lumi House
+# Cavour Luxury Rooms
 
-Website demonstrativo de um hotel ficticio na Puglia. Inclui pagina inicial, quartos, experiencias e formulario de pedido de reserva com estimativa ilustrativa.
+Website institucional de Cavour Luxury Rooms, em Lecce. Apresenta as duas acomodações, comodidades e contactos do alojamento.
 
 ## Abrir o site
 
@@ -12,12 +12,19 @@ python3 -m http.server 8000
 
 Depois, aceda a <http://localhost:8000/docs/>.
 
-## Paginas
+## Páginas
 
-- `docs/index.html` - pagina inicial
-- `docs/sobre.html` - historia ficticia da casa
-- `docs/quartos.html` - quartos e precos demonstrativos
-- `docs/atividades.html` - experiencias opcionais e precos demonstrativos
-- `docs/contactos.html` - formulario de pedido e estimativa de valores
+- `docs/index.html` - página inicial
+- `docs/sobre.html` - informações sobre o alojamento
+- `docs/quartos.html` - Apartamento Deluxe e Quarto Queen Deluxe
+- `docs/atividades.html` - comodidades
+- `docs/contactos.html` - morada e contactos
 
-Os dados de disponibilidade, precos e parcelamento sao apenas demonstrativos. O formulario nao processa pagamentos nem cria reservas reais.
+## Imagens e logos
+
+- Logo marrom usada no cabeçalho: `docs/assets/images/logos/logo-02.png`.
+- Logo branca usada no rodapé e como favicon: `docs/assets/images/logos/logo-03.png`.
+- As dez fotos em `docs/assets/images/quartos/apartamento-deluxe/` são mostradas na galeria do Apartamento Deluxe e uma delas também aparece na página inicial.
+- As oito fotos em `docs/assets/images/quartos/queen-deluxe/` são mostradas na galeria do Quarto Queen Deluxe.
+
+Para adicionar fotos à galeria, inclua cada caminho como uma miniatura em `docs/quartos.html`. Para alterar telefone e email, edite os campos em `docs/contactos.html` dentro da lista de contactos.

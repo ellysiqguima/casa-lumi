@@ -1,154 +1,263 @@
-console.log("Bem-vindo à ITALY LUMI HOUSE!");
+document.querySelectorAll("[data-current-year]").forEach((element) => {
+    element.textContent = new Date().getFullYear();
+});
 
-const roomRates = {
-    oliveiras: 195,
-    jardim: 220,
-    lumi: 310,
-    terraco: 350,
-    familia: 420,
-    villa: 480
-};
+document.querySelectorAll(".optional-brand-image").forEach((image) => {
+    const showImage = () => {
+        image.hidden = false;
+    };
 
-const contactForm = document.querySelector(".contact-form");
+    image.addEventListener("load", showImage);
+    image.addEventListener("error", () => {
+        image.hidden = true;
+    }, { once: true });
 
-if (contactForm) {
-    const entrada = contactForm.querySelector("#entrada");
-    const saida = contactForm.querySelector("#saida");
-    const quarto = contactForm.querySelector("#quarto");
-    const hospedes = contactForm.querySelector("#hospedes");
-    const experiencia = contactForm.querySelector("#experiencia");
-    const pagamento = contactForm.querySelector("#pagamento");
-    const parcelamento = contactForm.querySelector("#parcelamento");
-    const resumo = contactForm.querySelector("#resumo-estimado");
+    if (image.complete && image.naturalWidth > 0) showImage();
+});
 
-    function formatEuro(value) {
-        return new Intl.NumberFormat("pt-PT", {
-            style: "currency",
-            currency: "EUR"
-        }).format(value);
-    }
-
-    function getNights() {
-        if (!entrada.value || !saida.value) return 0;
-        const [inYear, inMonth, inDay] = entrada.value.split("-").map(Number);
-        const [outYear, outMonth, outDay] = saida.value.split("-").map(Number);
-        const checkIn = Date.UTC(inYear, inMonth - 1, inDay);
-        const checkOut = Date.UTC(outYear, outMonth - 1, outDay);
-        return Math.round((checkOut - checkIn) / 86400000);
-    }
-
-    function updateEstimate() {
-        if (!entrada || !saida || !quarto || !resumo) return;
-
-        const selectedRoom = quarto.selectedOptions[0];
-        const availability = selectedRoom.dataset.status || "Consultar disponibilidade";
-        const statusClass = availability === "Indisponivel"
-            ? "unavailable"
-            : availability === "Ultimos quartos"
-                ? "limited"
-                : "";
-        const nights = getNights();
-
-        if (!entrada.value || !saida.value) {
-            resumo.innerHTML = `<p class="availability-status ${statusClass}">${availability}</p><p>Selecione entrada e saída para calcular o valor estimado.</p>`;
-            return;
+document.querySelectorAll("img[data-fallback]").forEach((image) => {
+    const showFallback = () => {
+        if (image.dataset.fallback && image.src !== image.dataset.fallback) {
+            image.src = image.dataset.fallback;
         }
+    };
 
-        if (nights <= 0) {
-            resumo.innerHTML = `<p class="availability-status ${statusClass}">${availability}</p><p>A saída deve ser pelo menos um dia depois da entrada.</p>`;
-            return;
-        }
+    image.addEventListener("error", showFallback, { once: true });
+    if (image.complete && image.naturalWidth === 0) showFallback();
+});
 
-        const roomTotal = (roomRates[quarto.value] || 0) * nights;
-        const guestCount = hospedes ? Number.parseInt(hospedes.value, 10) || 1 : 1;
-        const selectedExperience = experiencia && experiencia.selectedOptions[0];
-        const experiencePrice = selectedExperience
-            ? Number(selectedExperience.dataset.price) || 0
-            : 0;
-        const experienceTotal = selectedExperience && selectedExperience.value === "piquenique"
-            ? experiencePrice
-            : experiencePrice * guestCount;
-        const total = roomTotal + experienceTotal;
+document.querySelectorAll("[data-image-gallery]").forEach((gallery) => {
+    const mainImage = gallery.querySelector("[data-gallery-image]");
+    const thumbnails = [...gallery.querySelectorAll("[data-gallery-thumbnail]")];
+    const counter = gallery.querySelector("[data-gallery-counter]");
+    let activeIndex = 0;
 
-        const isCredit = pagamento && pagamento.value === "credito";
-        if (parcelamento) parcelamento.disabled = !isCredit;
-        const installments = isCredit && parcelamento ? Number(parcelamento.value) || 1 : 1;
-        const downPayment = installments > 1 ? total * 0.2 : 0;
-        const balance = total - downPayment;
-        const paymentText = installments > 1
-            ? `Entrada ${formatEuro(downPayment)} + ${installments}x ${formatEuro(balance / installments)}`
-            : isCredit
-                ? "Pagamento integral no cartão de crédito"
-                : "Pagamento no cartão de débito";
+    if (!mainImage || thumbnails.length === 0) return;
 
-        resumo.innerHTML = `
-            <div class="estimate-grid">
-                <div class="estimate-row"><span>Disponibilidade</span><strong class="availability-status ${statusClass}">${availability}</strong></div>
-                <div class="estimate-row"><span>Estadia</span><strong>${nights} noite${nights === 1 ? "" : "s"}</strong></div>
-                <div class="estimate-row"><span>Quarto</span><strong>${formatEuro(roomTotal)}</strong></div>
-                <div class="estimate-row"><span>Experiências</span><strong>${formatEuro(experienceTotal)}</strong></div>
-                <div class="estimate-row estimate-total"><span>Valor estimado</span><strong>${formatEuro(total)}</strong></div>
-                <div class="estimate-row"><span>Pagamento</span><strong>${paymentText}</strong></div>
-            </div>
-        `;
+    function showImage(index) {
+        activeIndex = (index + thumbnails.length) % thumbnails.length;
+        const activeThumbnail = thumbnails[activeIndex];
+        mainImage.src = activeThumbnail.dataset.src;
+        mainImage.alt = activeThumbnail.dataset.alt || "Apartamento Deluxe";
+        counter.textContent = `${activeIndex + 1} / ${thumbnails.length}`;
+
+        thumbnails.forEach((thumbnail, thumbnailIndex) => {
+            const isActive = thumbnailIndex === activeIndex;
+            thumbnail.classList.toggle("is-active", isActive);
+            if (isActive) thumbnail.setAttribute("aria-current", "true");
+            else thumbnail.removeAttribute("aria-current");
+        });
     }
 
-    if (entrada && saida) {
-        const today = new Date();
-        const toIsoDate = (date) => {
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, "0");
-            const day = String(date.getDate()).padStart(2, "0");
-            return `${year}-${month}-${day}`;
-        };
-
-        entrada.min = toIsoDate(today);
-        saida.min = toIsoDate(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1));
-
-        const updateExitMinimum = () => {
-            if (entrada.value) {
-                const [year, month, day] = entrada.value.split("-").map(Number);
-                saida.min = toIsoDate(new Date(year, month - 1, day + 1));
-                if (saida.value && getNights() <= 0) saida.value = "";
-            }
-            updateEstimate();
-        };
-
-        entrada.addEventListener("input", updateExitMinimum);
-        entrada.addEventListener("change", updateExitMinimum);
-        saida.addEventListener("input", updateEstimate);
-        saida.addEventListener("change", updateEstimate);
-    }
-
-    [quarto, hospedes, experiencia, pagamento, parcelamento].forEach((field) => {
-        if (field) field.addEventListener("change", updateEstimate);
+    gallery.querySelector("[data-gallery-prev]")?.addEventListener("click", () => {
+        showImage(activeIndex - 1);
+    });
+    gallery.querySelector("[data-gallery-next]")?.addEventListener("click", () => {
+        showImage(activeIndex + 1);
+    });
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener("click", () => showImage(index));
     });
 
-    updateEstimate();
+    gallery.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") showImage(activeIndex - 1);
+        if (event.key === "ArrowRight") showImage(activeIndex + 1);
+    });
 
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const selectedRoom = quarto && quarto.selectedOptions[0];
-        const button = contactForm.querySelector("button");
+    showImage(0);
+});
 
-        if (selectedRoom && selectedRoom.dataset.status === "Indisponivel") {
-            button.textContent = "Escolha outro quarto";
-            button.disabled = true;
-            setTimeout(function () {
-                button.textContent = "Enviar pedido";
-                button.disabled = false;
-            }, 3000);
-            return;
-        }
+const languageTranslations = {
+    it: {
+        "Sobre": "Chi siamo", "Quartos": "Camere", "Comodidades": "Servizi", "Contactos": "Contatti", "Contactar": "Contattaci",
+        "Consultar disponibilidade": "Verifica disponibilita", "Conhecer a estadia": "Scopri la struttura", "Ver acomodações": "Vedi alloggi",
+        "Ver comodidades": "Vedi i servizi", "Explore": "Esplora", "Encontre-nos": "Dove siamo", "A casa": "La casa",
+        "Conforto e hospitalidade no coração de Lecce, Itália.": "Comfort e ospitalita nel cuore di Lecce, Italia.",
+        "Morada": "Indirizzo", "Telefone": "Telefono", "Email": "Email", "Reservas": "Prenotazioni",
+        "Dinheiro": "Contanti", "Pagamentos e animais": "Pagamenti e animali",
+        "Não são admitidos animais de estimação.": "Non sono ammessi animali domestici.",
+        "CAVOUR LUXURY ROOMS | LECCE, ITÁLIA": "CAVOUR LUXURY ROOMS | LECCE, ITALIA",
+        "Um lugar especial para descobrir Lecce.": "Un luogo speciale per scoprire Lecce.",
+        "Conforto para famílias, pequeno-almoço incluído e a hospitalidade do Salento.": "Comfort per famiglie, prima colazione inclusa e ospitalita nel Salento.",
+        "CAVOUR LUXURY ROOMS | SALENTO": "CAVOUR LUXURY ROOMS | SALENTO",
+        "Uma estadia confortável para aproveitar cada momento.": "Un soggiorno confortevole per vivere ogni momento.",
+        "Em Lecce, no coração do Salento": "A Lecce, nel cuore del Salento",
+        "Espaço para descansar, juntos.": "Spazio per riposare, insieme.",
+        "O Apartamento Deluxe acomoda até 2 adultos e 2 crianças. O Quarto Queen Deluxe recebe até 3 pessoas e oferece vista para a cidade.": "L'Appartamento Deluxe ospita fino a 2 adulti e 2 bambini. La Camera Queen Deluxe ospita fino a 3 persone e offre vista sulla citta.",
+        "Ambos contam com ar condicionado, casa de banho privativa, televisão de ecrã plano e Wi-Fi gratuito. O pequeno-almoço está incluído.": "Entrambi dispongono di aria condizionata, bagno privato, TV a schermo piatto e Wi-Fi gratuito. La prima colazione e inclusa.",
+        "Lecce | História e identidade": "Lecce | Storia e identita",
+        "Uma Joia Barroca no Coração do Salento": "Un gioiello barocco nel cuore del Salento",
+        "Acomodações": "Alloggi", "Escolha a estadia ideal": "Scegli il soggiorno ideale", "Apartamento Deluxe": "Appartamento Deluxe", "Quarto Queen Deluxe": "Camera Queen Deluxe",
+        "Tudo para uma estadia tranquila": "Tutto per un soggiorno tranquillo", "Pequeno-almoço incluído": "Prima colazione inclusa",
+        "Comece o dia com o pequeno-almoço incluído na estadia.": "Inizia la giornata con la prima colazione inclusa nel soggiorno.",
+        "Conforto e conveniência": "Comfort e comodita", "Ar condicionado, Wi-Fi gratuito, estacionamento e jardim.": "Aria condizionata, Wi-Fi gratuito, parcheggio e giardino.",
+        "Para toda a família": "Per tutta la famiglia", "Quartos familiares e opções para diferentes tamanhos de grupo.": "Camere familiari e opzioni per gruppi di diverse dimensioni.",
+        "Antes de chegar": "Prima dell'arrivo", "Perguntas frequentes": "Domande frequenti",
+        "Informações importantes": "Informazioni importanti", "Regras essenciais": "Regole essenziali",
+        "Cancelamento e pré-pagamento": "Cancellazione e pagamento anticipato", "Crianças e camas": "Bambini e letti",
+        "Idade para check-in": "Eta per il check-in", "Não há restrições de idade para fazer check-in.": "Non ci sono limiti di eta per effettuare il check-in.",
+        "Fumo, festas e repouso": "Fumo, feste e riposo", "Avaliação dos hóspedes": "Valutazione degli ospiti",
+        "Uma classificação de destaque.": "Una valutazione eccellente.", "Nota no Booking.com": "Valutazione su Booking.com",
+        "A CASA": "LA CASA", "Conforto e hospitalidade em Lecce.": "Comfort e ospitalita a Lecce.",
+        "Uma estadia que acolhe toda a família": "Un soggiorno che accoglie tutta la famiglia",
+        "Pequeno-almoço": "Prima colazione", "Estacionamento": "Parcheggio", "Em família": "In famiglia",
+        "DUAS ACOMODAÇÕES": "DUE ALLOGGI", "Espaço para descansar e sentir-se em casa.": "Spazio per riposare e sentirsi a casa.",
+        "Escolha a opção ideal para o seu grupo": "Scegli l'opzione ideale per il tuo gruppo",
+        "CONFORTO INCLUÍDO": "COMFORT INCLUSO", "Os detalhes que tornam a estadia mais simples.": "I dettagli che rendono il soggiorno piu semplice.",
+        "Comodidades do alojamento": "Servizi della struttura", "Conforto para aproveitar Lecce com tranquilidade.": "Comfort per godersi Lecce in tutta tranquillita.",
+        "Estacionamento e jardim": "Parcheggio e giardino", "Conforto em todos os quartos": "Comfort in tutte le camere",
+        "Incluído": "Incluso", "Gratuito": "Gratuito", "Contactar o alojamento": "Contatta la struttura",
+        "CONTACTOS": "CONTATTI", "Estamos à sua disposição.": "Siamo a vostra disposizione.",
+        "Planeie a sua visita diretamente com a propriedade.": "Organizza la tua visita direttamente con la struttura.",
+        "Para consultar preços e disponibilidade, utilize o telefone ou email do alojamento.": "Per consultare prezzi e disponibilita, usa il telefono o l'email della struttura.",
+        "Abrir morada no mapa": "Apri l'indirizzo sulla mappa",
+        "Acomodações | Cavour Luxury Rooms, Lecce": "Alloggi | Cavour Luxury Rooms, Lecce",
+        "A casa | Cavour Luxury Rooms, Lecce": "La casa | Cavour Luxury Rooms, Lecce",
+        "Comodidades | Cavour Luxury Rooms, Lecce": "Servizi | Cavour Luxury Rooms, Lecce",
+        "Contactos | Cavour Luxury Rooms, Lecce": "Contatti | Cavour Luxury Rooms, Lecce"
+    },
+    en: {
+        "Sobre": "About", "Quartos": "Rooms", "Comodidades": "Amenities", "Contactos": "Contact", "Contactar": "Contact us",
+        "Consultar disponibilidade": "Check availability", "Conhecer a estadia": "Discover the stay", "Ver acomodações": "View rooms",
+        "Ver comodidades": "View amenities", "Explore": "Explore", "Encontre-nos": "Find us", "A casa": "The house",
+        "Conforto e hospitalidade no coração de Lecce, Itália.": "Comfort and hospitality in the heart of Lecce, Italy.",
+        "Morada": "Address", "Telefone": "Phone", "Email": "Email", "Reservas": "Reservations",
+        "Dinheiro": "Cash", "Pagamentos e animais": "Payments and pets",
+        "Não são admitidos animais de estimação.": "Pets are not allowed.",
+        "CAVOUR LUXURY ROOMS | LECCE, ITÁLIA": "CAVOUR LUXURY ROOMS | LECCE, ITALY",
+        "Um lugar especial para descobrir Lecce.": "A special place to discover Lecce.",
+        "Conforto para famílias, pequeno-almoço incluído e a hospitalidade do Salento.": "Comfort for families, breakfast included and the hospitality of Salento.",
+        "CAVOUR LUXURY ROOMS | SALENTO": "CAVOUR LUXURY ROOMS | SALENTO",
+        "Uma estadia confortável para aproveitar cada momento.": "A comfortable stay to enjoy every moment.",
+        "Em Lecce, no coração do Salento": "In Lecce, in the heart of Salento",
+        "Espaço para descansar, juntos.": "Space to rest, together.",
+        "O Apartamento Deluxe acomoda até 2 adultos e 2 crianças. O Quarto Queen Deluxe recebe até 3 pessoas e oferece vista para a cidade.": "The Deluxe Apartment accommodates up to 2 adults and 2 children. The Deluxe Queen Room accommodates up to 3 people and has a city view.",
+        "Ambos contam com ar condicionado, casa de banho privativa, televisão de ecrã plano e Wi-Fi gratuito. O pequeno-almoço está incluído.": "Both have air conditioning, a private bathroom, flat-screen TV and free Wi-Fi. Breakfast is included.",
+        "Lecce | História e identidade": "Lecce | History and identity", "Uma Joia Barroca no Coração do Salento": "A Baroque Gem in the Heart of Salento",
+        "Acomodações": "Rooms", "Escolha a estadia ideal": "Choose the ideal stay", "Apartamento Deluxe": "Deluxe Apartment", "Quarto Queen Deluxe": "Deluxe Queen Room",
+        "Tudo para uma estadia tranquila": "Everything for a relaxing stay", "Pequeno-almoço incluído": "Breakfast included",
+        "Comece o dia com o pequeno-almoço incluído na estadia.": "Start the day with breakfast included in your stay.",
+        "Conforto e conveniência": "Comfort and convenience", "Ar condicionado, Wi-Fi gratuito, estacionamento e jardim.": "Air conditioning, free Wi-Fi, parking and garden.",
+        "Para toda a família": "For the whole family", "Quartos familiares e opções para diferentes tamanhos de grupo.": "Family rooms and options for different group sizes.",
+        "Antes de chegar": "Before arrival", "Perguntas frequentes": "Frequently asked questions",
+        "Informações importantes": "Important information", "Regras essenciais": "Essential rules",
+        "Cancelamento e pré-pagamento": "Cancellation and prepayment", "Crianças e camas": "Children and beds",
+        "Idade para check-in": "Check-in age", "Não há restrições de idade para fazer check-in.": "There are no age restrictions for check-in.",
+        "Fumo, festas e repouso": "Smoking, parties and quiet hours", "Avaliação dos hóspedes": "Guest rating",
+        "Uma classificação de destaque.": "An outstanding rating.", "Nota no Booking.com": "Booking.com rating",
+        "A CASA": "THE HOUSE", "Conforto e hospitalidade em Lecce.": "Comfort and hospitality in Lecce.",
+        "Uma estadia que acolhe toda a família": "A stay that welcomes the whole family",
+        "Pequeno-almoço": "Breakfast", "Estacionamento": "Parking", "Em família": "For families",
+        "DUAS ACOMODAÇÕES": "TWO ACCOMMODATIONS", "Espaço para descansar e sentir-se em casa.": "Space to rest and feel at home.",
+        "Escolha a opção ideal para o seu grupo": "Choose the ideal option for your group",
+        "CONFORTO INCLUÍDO": "COMFORT INCLUDED", "Os detalhes que tornam a estadia mais simples.": "The details that make your stay easier.",
+        "Comodidades do alojamento": "Property amenities", "Conforto para aproveitar Lecce com tranquilidade.": "Comfort to enjoy Lecce in complete tranquility.",
+        "Estacionamento e jardim": "Parking and garden", "Conforto em todos os quartos": "Comfort in every room",
+        "Incluído": "Included", "Gratuito": "Free", "Contactar o alojamento": "Contact the property",
+        "CONTACTOS": "CONTACT", "Estamos à sua disposição.": "We are at your disposal.",
+        "Planeie a sua visita diretamente com a propriedade.": "Plan your visit directly with the property.",
+        "Para consultar preços e disponibilidade, utilize o telefone ou email do alojamento.": "For prices and availability, please use the property's phone or email.",
+        "Abrir morada no mapa": "Open address in map",
+        "Acomodações | Cavour Luxury Rooms, Lecce": "Rooms | Cavour Luxury Rooms, Lecce",
+        "A casa | Cavour Luxury Rooms, Lecce": "The house | Cavour Luxury Rooms, Lecce",
+        "Comodidades | Cavour Luxury Rooms, Lecce": "Amenities | Cavour Luxury Rooms, Lecce",
+        "Contactos | Cavour Luxury Rooms, Lecce": "Contact | Cavour Luxury Rooms, Lecce"
+    },
+    es: {
+        "Sobre": "Sobre nosotros", "Quartos": "Habitaciones", "Comodidades": "Servicios", "Contactos": "Contactos", "Contactar": "Contactar",
+        "Consultar disponibilidade": "Consultar disponibilidad", "Conhecer a estadia": "Conocer la estancia", "Ver acomodações": "Ver alojamientos",
+        "Ver comodidades": "Ver servicios", "Explore": "Explorar", "Encontre-nos": "Encuentranos", "A casa": "La casa",
+        "Conforto e hospitalidade no coração de Lecce, Itália.": "Comodidad y hospitalidad en el corazón de Lecce, Italia.",
+        "Morada": "Direccion", "Telefone": "Telefono", "Email": "Correo electronico", "Reservas": "Reservas",
+        "Dinheiro": "Dinero", "Pagamentos e animais": "Pagos y animales",
+        "Não são admitidos animais de estimação.": "No se admiten animales.",
+        "CAVOUR LUXURY ROOMS | LECCE, ITÁLIA": "CAVOUR LUXURY ROOMS | LECCE, ITALIA",
+        "Um lugar especial para descobrir Lecce.": "Un lugar especial para descubrir Lecce.",
+        "Conforto para famílias, pequeno-almoço incluído e a hospitalidade do Salento.": "Comodidad para familias, desayuno incluido y hospitalidad del Salento.",
+        "CAVOUR LUXURY ROOMS | SALENTO": "CAVOUR LUXURY ROOMS | SALENTO",
+        "Uma estadia confortável para aproveitar cada momento.": "Una estancia comoda para disfrutar cada momento.",
+        "Em Lecce, no coração do Salento": "En Lecce, en el corazón del Salento",
+        "Espaço para descansar, juntos.": "Espacio para descansar, juntos.",
+        "O Apartamento Deluxe acomoda até 2 adultos e 2 crianças. O Quarto Queen Deluxe recebe até 3 pessoas e oferece vista para a cidade.": "El Apartamento Deluxe ofrece alojamiento para hasta 2 adultos y 2 niños. La Habitación Queen Deluxe admite hasta 3 personas y ofrece vistas a la ciudad.",
+        "Ambos contam com ar condicionado, casa de banho privativa, televisão de ecrã plano e Wi-Fi gratuito. O pequeno-almoço está incluído.": "Ambos cuentan con aire acondicionado, baño privado, television de pantalla plana y Wi-Fi gratuito. El desayuno esta incluido.",
+        "Lecce | História e identidade": "Lecce | Historia e identidad", "Uma Joia Barroca no Coração do Salento": "Una joya barroca en el corazón del Salento",
+        "Acomodações": "Alojamientos", "Escolha a estadia ideal": "Elija la estancia ideal", "Apartamento Deluxe": "Apartamento Deluxe", "Quarto Queen Deluxe": "Habitacion Queen Deluxe",
+        "Tudo para uma estadia tranquila": "Todo para una estancia tranquila", "Pequeno-almoço incluído": "Desayuno incluido",
+        "Comece o dia com o pequeno-almoço incluído na estadia.": "Empiece el dia con el desayuno incluido en la estancia.",
+        "Conforto e conveniência": "Comodidad y conveniencia", "Ar condicionado, Wi-Fi gratuito, estacionamento e jardim.": "Aire acondicionado, Wi-Fi gratuito, aparcamiento y jardin.",
+        "Para toda a família": "Para toda la familia", "Quartos familiares e opções para diferentes tamanhos de grupo.": "Habitaciones familiares y opciones para grupos de distintos tamanos.",
+        "Antes de chegar": "Antes de llegar", "Perguntas frequentes": "Preguntas frecuentes",
+        "Informações importantes": "Informacion importante", "Regras essenciais": "Normas esenciales",
+        "Cancelamento e pré-pagamento": "Cancelacion y prepago", "Crianças e camas": "Niños y camas",
+        "Idade para check-in": "Edad para el check-in", "Não há restrições de idade para fazer check-in.": "No hay restricciones de edad para realizar el check-in.",
+        "Fumo, festas e repouso": "Fumar, fiestas y descanso", "Avaliação dos hóspedes": "Valoracion de los huespedes",
+        "Uma classificação de destaque.": "Una valoración destacada.", "Nota no Booking.com": "Puntuacion en Booking.com",
+        "A CASA": "LA CASA", "Conforto e hospitalidade em Lecce.": "Comodidad y hospitalidad en Lecce.",
+        "Uma estadia que acolhe toda a família": "Una estancia que da la bienvenida a toda la familia",
+        "Pequeno-almoço": "Desayuno", "Estacionamento": "Aparcamiento", "Em família": "En familia",
+        "DUAS ACOMODAÇÕES": "DOS ALOJAMIENTOS", "Espaço para descansar e sentir-se em casa.": "Espacio para descansar y sentirse como en casa.",
+        "Escolha a opção ideal para o seu grupo": "Elija la opcion ideal para su grupo",
+        "CONFORTO INCLUÍDO": "COMODIDAD INCLUIDA", "Os detalhes que tornam a estadia mais simples.": "Los detalles que hacen la estancia mas sencilla.",
+        "Comodidades do alojamento": "Servicios del alojamiento", "Conforto para aproveitar Lecce com tranquilidade.": "Comodidad para disfrutar Lecce con tranquilidad.",
+        "Estacionamento e jardim": "Aparcamiento y jardin", "Conforto em todos os quartos": "Comodidad en todas las habitaciones",
+        "Incluído": "Incluido", "Gratuito": "Gratis", "Contactar o alojamento": "Contactar con el alojamiento",
+        "CONTACTOS": "CONTACTOS", "Estamos à sua disposição.": "Estamos a su disposicion.",
+        "Planeie a sua visita diretamente com a propriedade.": "Planifique su visita directamente con el alojamiento.",
+        "Para consultar preços e disponibilidade, utilize o telefone ou email do alojamento.": "Para consultar precios y disponibilidad, utilice el telefono o el correo del alojamiento.",
+        "Abrir morada no mapa": "Abrir direccion en el mapa",
+        "Acomodações | Cavour Luxury Rooms, Lecce": "Alojamientos | Cavour Luxury Rooms, Lecce",
+        "A casa | Cavour Luxury Rooms, Lecce": "La casa | Cavour Luxury Rooms, Lecce",
+        "Comodidades | Cavour Luxury Rooms, Lecce": "Servicios | Cavour Luxury Rooms, Lecce",
+        "Contactos | Cavour Luxury Rooms, Lecce": "Contactos | Cavour Luxury Rooms, Lecce"
+    }
+};
 
-        button.textContent = "Pedido enviado";
-        button.disabled = true;
-        setTimeout(function () {
-            contactForm.reset();
-            if (parcelamento) parcelamento.disabled = true;
-            updateEstimate();
-            button.textContent = "Enviar pedido";
-            button.disabled = false;
-        }, 3000);
+const textNodes = [];
+const originalTextNodes = new WeakMap();
+const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+while (walker.nextNode()) {
+    const text = walker.currentNode;
+    if (!text.textContent.trim()) continue;
+    if (text.parentElement?.closest("script, style, option")) continue;
+    textNodes.push(text);
+    originalTextNodes.set(text, text.textContent.trim());
+}
+
+function applyLanguage(language) {
+    const translations = languageTranslations[language] || {};
+    textNodes.forEach((text) => {
+        const original = originalTextNodes.get(text);
+        text.textContent = language === "pt" ? original : (translations[original] || original);
+    });
+
+    document.documentElement.lang = language;
+    const titleOriginal = document.title;
+    const titleKey = document.querySelector("body")?.dataset.originalTitle;
+    if (!titleKey) document.querySelector("body").dataset.originalTitle = titleOriginal;
+    const originalTitle = document.querySelector("body").dataset.originalTitle;
+    document.title = language === "pt" ? originalTitle : (translations[originalTitle] || originalTitle);
+
+    const languageSelect = document.querySelector("#language-select");
+    if (languageSelect) {
+        languageSelect.value = language;
+        languageSelect.setAttribute("aria-label", {
+            pt: "Selecionar idioma", it: "Seleziona lingua", en: "Select language", es: "Seleccionar idioma"
+        }[language]);
+    }
+}
+
+const languageSelect = document.querySelector("#language-select");
+if (languageSelect) {
+    const validLanguages = ["pt", "it", "en", "es"];
+    const savedLanguage = localStorage.getItem("cavour-language");
+    const browserLanguage = document.documentElement.lang || "pt";
+    const initialLanguage = validLanguages.includes(savedLanguage) ? savedLanguage : browserLanguage;
+
+    applyLanguage(initialLanguage);
+    languageSelect.addEventListener("change", (event) => {
+        const language = event.target.value;
+        if (!validLanguages.includes(language)) return;
+        localStorage.setItem("cavour-language", language);
+        applyLanguage(language);
     });
 }
